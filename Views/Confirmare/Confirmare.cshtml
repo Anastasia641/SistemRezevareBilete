@@ -1,0 +1,35 @@
+@model FactoryWebApp.Models.Rezervare.Rezervare
+
+@{
+    ViewData["Title"] = "Confirmare Rezervare";
+}
+
+<h2>Rezervare confirmată!</h2>
+
+<p>Cod rezervare: <strong>@Model.CodRezervare</strong></p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Pasager</th>
+            <th>Tip Bilet</th>
+            <th>Plecare</th>
+            <th>Sosire</th>
+            <th>Pret</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var bilet in Model.GetBilete())
+        {
+            <tr>
+                <td>@bilet.Pasager.Nume @bilet.Pasager.Prenume</td>
+                <td>@bilet.GetType().Name</td>
+                <td>@bilet.Zbor.Plecare</td>
+                <td>@bilet.Zbor.Sosire</td>
+                <td>@bilet.Pret</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Rezervari" class="btn btn-success">Vezi toate rezervările</a>

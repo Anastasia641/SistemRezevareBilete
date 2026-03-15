@@ -1,0 +1,40 @@
+@model List<FactoryWebApp.Models.Domain.Zbor>
+
+@{
+    ViewData["Title"] = "Rezultate Cautare";
+}
+
+<h2>Rezultate căutare</h2>
+
+@if (!Model.Any())
+{
+    <p>Nu au fost găsite zboruri pentru criteriile tale.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Cod Zbor</th>
+                <th>Avion</th>
+                <th>Plecare</th>
+                <th>Sosire</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var zbor in Model)
+            {
+                <tr>
+                    <td>@zbor.CodZbor</td>
+                    <td>@zbor.Avion.NumarAvion</td>
+                    <td>@zbor.Plecare</td>
+                    <td>@zbor.Sosire</td>
+                    <td>
+                        <a asp-action="Detalii" asp-route-codZbor="@zbor.CodZbor" class="btn btn-success">Selectează</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

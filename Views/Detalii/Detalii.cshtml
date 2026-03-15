@@ -1,0 +1,35 @@
+@model FactoryWebApp.Models.Domain.Zbor
+
+@{
+    ViewData["Title"] = "Detalii Zbor";
+}
+
+<h2>Detalii Zbor: @Model.CodZbor</h2>
+
+<p>Plecare: @Model.Plecare</p>
+<p>Sosire: @Model.Sosire</p>
+<p>Avion: @Model.Avion.NumarAvion</p>
+
+<form asp-action="Detalii" method="post">
+    <input type="hidden" name="codZbor" value="@Model.CodZbor" />
+
+    <div class="mb-3">
+        <label>Nume:</label>
+        <input type="text" name="nume" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Prenume:</label>
+        <input type="text" name="prenume" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Clasa:</label>
+        <select name="clasa" class="form-control">
+            <option value="Standard">Standard</option>
+            <option value="Business">Business</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Rezervă</button>
+</form>

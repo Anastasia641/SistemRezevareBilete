@@ -1,0 +1,25 @@
+@model FactoryWebApp.Models.Rezervare.Rezervare
+
+@{
+    ViewData["Title"] = "Confirmare Rezervare";
+}
+
+<h2>Rezervare Confirmată</h2>
+
+@if (Model != null)
+{
+    <div class="card p-3 mt-3">
+        <p><strong>Cod Rezervare:</strong> @Model.CodRezervare</p>
+        <p><strong>Bilete:</strong></p>
+        <ul>
+            @foreach(var bilet in Model.Bilete)
+            {
+                <li>@bilet.Pasager.Nume @bilet.Pasager.Prenume - @bilet.Zbor.CodZbor - @bilet.Pret lei</li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">Rezervare invalidă.</div>
+}

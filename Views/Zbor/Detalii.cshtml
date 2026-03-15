@@ -1,0 +1,49 @@
+@model FactoryWebApp.Models.Domain.Zbor
+
+@{
+    ViewData["Title"] = "Detalii Zbor";
+}
+
+<div class="container mt-4">
+    <h2>Detalii Zbor: @Model.CodZbor</h2>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="card card-custom p-3 mb-3">
+                <h5>Informații Zbor</h5>
+                <p><strong>Plecare:</strong> @Model.Plecare</p>
+                <p><strong>Sosire:</strong> @Model.Sosire</p>
+                <p><strong>Avion:</strong> @Model.Avion.NumarAvion</p>
+                <p><strong>Capacitate:</strong> @Model.Avion.Capacitate pasageri</p>
+            </div>
+
+            <div class="card card-custom p-3">
+                <h5>Rezervă acum</h5>
+                <form method="post" asp-controller="Zbor" asp-action="Detalii">
+                    <input type="hidden" name="codZbor" value="@Model.CodZbor" />
+                    <div class="mb-2">
+                        <label>Nume pasager:</label>
+                        <input type="text" name="nume" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label>Prenume pasager:</label>
+                        <input type="text" name="prenume" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label>Clasa:</label>
+                        <select name="clasa" class="form-control">
+                            <option value="Standard">Standard</option>
+                            <option value="Business">Business</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Rezervă</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Imagine zbor/pasager cu valiză -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" 
+                 class="img-fluid rounded" alt="Pasager cu valiză" />
+        </div>
+    </div>
+</div>

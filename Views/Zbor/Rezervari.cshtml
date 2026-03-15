@@ -1,0 +1,45 @@
+@model List<FactoryWebApp.Models.Rezervare.Rezervare>
+
+@{
+    ViewData["Title"] = "Rezervări";
+}
+
+<h2>Rezervările Tale</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Nu ai rezervări în acest moment.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Cod Rezervare</th>
+                <th>Bilete</th>
+                <th>Acțiune</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.CodRezervare</td>
+                <td>
+                    <ul>
+                        @foreach (var b in r.Bilete)
+                        {
+                            <li>@b.GetType().Name - @b.Pasager.Nume @b.Pasager.Prenume - Pret: @b.PretLei lei</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <form method="post" asp-action="AnuleazaToateBiletele">
+                        <button type="submit" class="btn btn-danger btn-sm">Anulează toate</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

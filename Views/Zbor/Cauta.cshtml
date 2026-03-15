@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Caută Zbor";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card card-custom p-4">
+            <h3 class="mb-4 text-center">✈ Caută Zbor</h3>
+            <form asp-action="Rezultate" method="post">
+                <div class="mb-3">
+                    <label for="plecare" class="form-label">Oraș Plecare</label>
+                    <input type="text" class="form-control" id="plecare" name="plecare" placeholder="Ex: Chisinau" required />
+                </div>
+                <div class="mb-3">
+                    <label for="destinatie" class="form-label">Oraș Destinație</label>
+                    <input type="text" class="form-control" id="destinatie" name="destinatie" placeholder="Ex: Roma" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Caută Zboruri</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <img src="https://cdn-icons-png.flaticon.com/512/69/69524.png" width="120" alt="Avion" />
+</div>

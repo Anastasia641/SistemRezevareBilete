@@ -1,0 +1,36 @@
+@model List<FactoryWebApp.Models.Domain.Zbor>
+
+@{
+    ViewData["Title"] = "Rezultate Căutare Zbor";
+}
+
+<h2 class="text-center mb-4">Rezultate Căutare Zbor</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning text-center">
+        Nu s-au găsit zboruri pentru această căutare.
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var zbor in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card card-custom p-3">
+                    <img src="https://cdn-icons-png.flaticon.com/512/69/69524.png" class="card-img-top" alt="Avion" style="height:150px; object-fit:contain;">
+                    <div class="card-body">
+                        <h5 class="card-title">@zbor.CodZbor</h5>
+                        <p class="card-text">
+                            Plecare: <strong>@zbor.Plecare</strong><br />
+                            Sosire: <strong>@zbor.Sosire</strong><br />
+                            Avion: <strong>@zbor.Avion.NumarAvion</strong> | Locuri: @zbor.Avion.Capacitate
+                        </p>
+                        <a asp-action="Detalii" asp-route-codZbor="@zbor.CodZbor" class="btn btn-success w-100">Vezi Detalii</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

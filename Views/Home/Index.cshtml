@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Acasă";
+}
+
+<div class="text-center mb-5 mt-4">
+    <h1 class="display-4">✈ Sistem de Rezervări Aeriene</h1>
+    <p class="lead">Testează diferite design pattern-uri implementate în proiect</p>
+</div>
+
+<div class="container text-center mt-5">
+    <h2 class="mb-4">Laboratoare</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="/Lab1" class="btn btn-outline-primary btn-lg w-25">Lab1</a>
+        
+        <!-- Lab2 cu collapse -->
+        <button class="btn btn-outline-primary btn-lg w-25" type="button" data-bs-toggle="collapse" data-bs-target="#lab2Options" aria-expanded="false" aria-controls="lab2Options">
+            Lab2 (Factory)
+        </button>
+        
+        <!-- Lab3 cu collapse -->
+        <button class="btn btn-outline-primary btn-lg w-25" type="button" data-bs-toggle="collapse" data-bs-target="#lab3Options" aria-expanded="false" aria-controls="lab3Options">
+            Lab3 (Builder/Prototype/Singleton)
+        </button>
+        
+        <a href="/Lab4" class="btn btn-outline-primary btn-lg w-25">Lab4</a>
+        <a href="/Lab5" class="btn btn-outline-primary btn-lg w-25">Lab5</a>
+        <a href="/Lab6" class="btn btn-outline-primary btn-lg w-25">Lab6</a>
+        <a href="/Lab7" class="btn btn-outline-primary btn-lg w-25">Lab7</a>
+    </div>
+
+    <!-- Opțiuni Lab2 (Factory Method și Abstract Factory) -->
+    <div class="collapse mt-3" id="lab2Options">
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="/Lab2/FactoryMethod" class="btn btn-primary btn-lg w-25">Factory Method</a>
+            <a href="/Lab2/AbstractFactory" class="btn btn-success btn-lg w-25">Abstract Factory</a>
+        </div>
+    </div>
+
+    <!-- Opțiuni Lab3 (Builder, Prototype, Singleton) -->
+    <div class="collapse mt-3" id="lab3Options">
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="/Lab3/Builder" class="btn btn-primary btn-lg w-25">Builder</a>
+            <a href="/Lab3/Prototype" class="btn btn-warning btn-lg w-25">Prototype</a>
+            <a href="/Lab3/Singleton" class="btn btn-success btn-lg w-25">Singleton</a>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <p class="text-muted">💡 Dă click pe laborator pentru a vedea pattern-urile disponibile.</p>
+</div>

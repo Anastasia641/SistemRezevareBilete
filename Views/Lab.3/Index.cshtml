@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Lab3";
+    var result = ViewData["Result"] as string;
+    var pattern = ViewData["Pattern"] as string;
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Lab3 - Builder, Prototype, Singleton</h2>
+
+    <div class="mb-3 text-center">
+        <a href="/Lab3/Builder" class="btn btn-primary m-1">Testează Builder</a>
+        <a href="/Lab3/Prototype" class="btn btn-warning m-1">Testează Prototype</a>
+        <a href="/Lab3/Singleton" class="btn btn-success m-1">Testează Singleton</a>
+    </div>
+
+    @if (!string.IsNullOrEmpty(result))
+    {
+        <div class="card p-4 mt-3">
+            <h4>@pattern</h4>
+            <p>@result</p>
+        </div>
+    }
+</div>
